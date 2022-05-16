@@ -95,7 +95,24 @@ Plutôt à gauche|Plutôt horizontale
 Au centre|Plutôt horizontale
 Très à gauche|Plutôt horizontale
 Plutôt à gauche|Peu d'importance
-Très à gauche|Horizontale, certainement`;
+Très à gauche|Horizontale, certainement
+Plutôt à droite|Plutôt horizontale
+Plutôt à droite|Peu d'importance
+Plutôt à droite|Plutôt horizontale
+Plutôt à gauche|Plutôt horizontale
+Plutôt à droite|Plutôt horizontale
+Au centre|Horizontale, certainement
+Très à droite|Plutôt horizontale
+Plutôt à droite|Peu d'importance
+Plutôt à droite|Plutôt horizontale
+Très à gauche|Plutôt horizontale
+Plutôt à gauche|Plutôt horizontale
+Plutôt à droite|Plutôt horizontale
+Très à gauche|Verticale, certainement
+Plutôt à droite|Plutôt horizontale
+Au centre|Horizontale, certainement
+Au centre|Horizontale, certainement
+Au centre|Plutôt horizontale`;
             
 let matrix = Array(5).fill().map(()=>Array(5).fill());
 
