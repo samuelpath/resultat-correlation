@@ -1,25 +1,15 @@
-// taken from https://stackoverflow.com/a/7924240
-function occurrences(string, subString, allowOverlapping) {  
-  string += "";
-  subString += "";
-  if (subString.length <= 0) return (string.length + 1);
-
-  var n = 0,
-      pos = 0,
-      step = allowOverlapping ? 1 : subString.length;
-
-  while (true) {
-      pos = string.indexOf(subString, pos);
-      if (pos >= 0) {
-          ++n;
-          pos += step;
-      } else break;
-  }
-  return n;
-}
-
-var res =
-`Au centre|Plutôt verticale
+var data =
+`Plutôt à droite|Horizontale, certainement
+Plutôt à gauche|Plutôt verticale
+Plutôt à gauche|Horizontale, certainement
+Plutôt à gauche|Plutôt horizontale
+Plutôt à droite|Peu d'importance
+Plutôt à gauche|Horizontale, certainement
+Plutôt à gauche|Plutôt horizontale
+Plutôt à droite|Horizontale, certainement
+Plutôt à droite|Peu d'importance
+Plutôt à droite|Plutôt verticale
+Au centre|Plutôt verticale
 Plutôt à gauche|Plutôt horizontale
 Plutôt à droite|Plutôt horizontale
 Très à gauche|Plutôt horizontale
@@ -81,20 +71,17 @@ Plutôt à gauche|Plutôt horizontale
 Au centre|Peu d'importance
 Très à gauche|Plutôt horizontale
 Plutôt à gauche|Plutôt horizontale
-Plutôt à droite|Horizontale, certainement
-Plutôt à gauche|Plutôt verticale
-Plutôt à gauche|Horizontale, certainement
-Plutôt à gauche|Plutôt horizontale
-Plutôt à droite|Peu d'importance
-Plutôt à gauche|Horizontale, certainement
-Plutôt à gauche|Plutôt horizontale
-Plutôt à droite|Horizontale, certainement
-Plutôt à droite|Peu d'importance
-Plutôt à droite|Plutôt verticale
 Plutôt à gauche|Plutôt horizontale
 Au centre|Plutôt horizontale
 Très à gauche|Plutôt horizontale
 Plutôt à gauche|Peu d'importance
+Très à gauche|Horizontale, certainement
+Plutôt à gauche|Horizontale, certainement
+Plutôt à droite|Horizontale, certainement
+Plutôt à gauche|Plutôt horizontale
+Au centre|Plutôt horizontale
+Plutôt à droite|Plutôt horizontale
+Plutôt à gauche|Plutôt horizontale
 Très à gauche|Horizontale, certainement
 Plutôt à droite|Plutôt horizontale
 Plutôt à droite|Peu d'importance
@@ -113,6 +100,26 @@ Plutôt à droite|Plutôt horizontale
 Au centre|Horizontale, certainement
 Au centre|Horizontale, certainement
 Au centre|Plutôt horizontale`;
+
+// taken from https://stackoverflow.com/a/7924240
+function occurrences(string, subString, allowOverlapping) {  
+  string += "";
+  subString += "";
+  if (subString.length <= 0) return (string.length + 1);
+
+  var n = 0,
+      pos = 0,
+      step = allowOverlapping ? 1 : subString.length;
+
+  while (true) {
+      pos = string.indexOf(subString, pos);
+      if (pos >= 0) {
+          ++n;
+          pos += step;
+      } else break;
+  }
+  return n;
+}
             
 let matrix = Array(5).fill().map(()=>Array(5).fill());
 
@@ -121,7 +128,7 @@ const politics = ["Très à gauche","Plutôt à gauche","Au centre","Plutôt à 
 
 structures.forEach((structure, structureIdx) => {
   politics.forEach((politic, politicIdx) => {
-    count = occurrences(res, `${politic}|${structure}`);
+    count = occurrences(data, `${politic}|${structure}`);
     matrix[Math.abs(structureIdx -4)][politicIdx] = count;
   })
 });
